@@ -1218,7 +1218,7 @@
         <xs:element name="staff" msprop:Generator_TableClassName="staffDataTable" msprop:Generator_TableVarName="tablestaff" msprop:Generator_TablePropName="staff" msprop:Generator_RowDeletingName="staffRowDeleting" msprop:Generator_RowChangingName="staffRowChanging" msprop:Generator_RowEvHandlerName="staffRowChangeEventHandler" msprop:Generator_RowDeletedName="staffRowDeleted" msprop:Generator_UserTableName="staff" msprop:Generator_RowChangedName="staffRowChanged" msprop:Generator_RowEvArgName="staffRowChangeEvent" msprop:Generator_RowClassName="staffRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_staff" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_staff" msprop:Generator_ColumnPropNameInRow="id_staff" msprop:Generator_ColumnPropNameInTable="id_staffColumn" msprop:Generator_UserColumnName="id_staff" type="xs:int" />
+              <xs:element name="id_staff" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_staff" msprop:Generator_ColumnPropNameInRow="id_staff" msprop:Generator_ColumnPropNameInTable="id_staffColumn" msprop:Generator_UserColumnName="id_staff" type="xs:decimal" />
               <xs:element name="fullName" msprop:Generator_ColumnVarNameInTable="columnfullName" msprop:Generator_ColumnPropNameInRow="fullName" msprop:Generator_ColumnPropNameInTable="fullNameColumn" msprop:Generator_UserColumnName="fullName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1226,7 +1226,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="job_id" msprop:Generator_ColumnVarNameInTable="columnjob_id" msprop:Generator_ColumnPropNameInRow="job_id" msprop:Generator_ColumnPropNameInTable="job_idColumn" msprop:Generator_UserColumnName="job_id" type="xs:long" />
+              <xs:element name="job_id" msprop:Generator_ColumnVarNameInTable="columnjob_id" msprop:Generator_ColumnPropNameInRow="job_id" msprop:Generator_ColumnPropNameInTable="job_idColumn" msprop:Generator_UserColumnName="job_id" type="xs:decimal" />
               <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone" type="xs:decimal" />
               <xs:element name="rating" msprop:Generator_ColumnVarNameInTable="columnrating" msprop:Generator_ColumnPropNameInRow="rating" msprop:Generator_ColumnPropNameInTable="ratingColumn" msprop:Generator_UserColumnName="rating" type="xs:decimal" minOccurs="0" />
               <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:boolean" minOccurs="0" />

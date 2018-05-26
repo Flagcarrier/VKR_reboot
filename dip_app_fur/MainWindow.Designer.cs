@@ -54,6 +54,9 @@
             this.bd_dip_furDataSet1 = new dip_app_fur.bd_dip_furDataSet();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -67,9 +70,6 @@
             this.tableAdapterManager = new dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager();
             this.clientsTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.clientsTableAdapter();
             this.staffTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.staffTableAdapter();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingNavigator)).BeginInit();
             this.orderBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -305,6 +305,39 @@
             this.panel1.Size = new System.Drawing.Size(246, 423);
             this.panel1.TabIndex = 2;
             // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button9.Location = new System.Drawing.Point(-3, 330);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(249, 40);
+            this.button9.TabIndex = 6;
+            this.button9.Text = "Отчет о заказе";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button8.Location = new System.Drawing.Point(-3, 284);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(249, 40);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "Поставщики";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.Location = new System.Drawing.Point(-3, 238);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(249, 40);
+            this.button7.TabIndex = 4;
+            this.button7.Text = "Расшифровка заказа";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -443,39 +476,6 @@
             // staffTableAdapter
             // 
             this.staffTableAdapter.ClearBeforeFill = true;
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(-3, 238);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(249, 40);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "Расшифровка заказа";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(-3, 284);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(249, 40);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Поставщики";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(-3, 330);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(249, 40);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "Отчет о заказе";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // MainWindow
             // 

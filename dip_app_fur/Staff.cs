@@ -47,7 +47,7 @@ namespace dip_app_fur
             // TODO: данная строка кода позволяет загрузить данные в таблицу "bd_dip_furDataSet.jobs". При необходимости она может быть перемещена или удалена.
             this.jobsTableAdapter.Fill(this.bd_dip_furDataSet.jobs);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "bd_dip_furDataSet.staff". При необходимости она может быть перемещена или удалена.
-            this.staffTableAdapter.Fill(this.bd_dip_furDataSet.staff);
+            this.staffTableAdapter1.Fill(this.bd_dip_furDataSet.staff);
 
         }
 

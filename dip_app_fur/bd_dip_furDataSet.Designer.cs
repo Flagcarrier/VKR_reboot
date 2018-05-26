@@ -5600,7 +5600,7 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public staffRow AddstaffRow(string fullName, long job_id, decimal phone, decimal rating, bool status) {
+            public staffRow AddstaffRow(string fullName, decimal job_id, decimal phone, decimal rating, bool status) {
                 staffRow rowstaffRow = ((staffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5616,7 +5616,7 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public staffRow FindByid_staff(int id_staff) {
+            public staffRow FindByid_staff(decimal id_staff) {
                 return ((staffRow)(this.Rows.Find(new object[] {
                             id_staff})));
             }
@@ -5649,11 +5649,11 @@ namespace dip_app_fur {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnid_staff = new global::System.Data.DataColumn("id_staff", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnid_staff = new global::System.Data.DataColumn("id_staff", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_staff);
                 this.columnfullName = new global::System.Data.DataColumn("fullName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfullName);
-                this.columnjob_id = new global::System.Data.DataColumn("job_id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnjob_id = new global::System.Data.DataColumn("job_id", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjob_id);
                 this.columnphone = new global::System.Data.DataColumn("phone", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnphone);
@@ -7043,9 +7043,9 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int id_staff {
+            public decimal id_staff {
                 get {
-                    return ((int)(this[this.tablestaff.id_staffColumn]));
+                    return ((decimal)(this[this.tablestaff.id_staffColumn]));
                 }
                 set {
                     this[this.tablestaff.id_staffColumn] = value;
@@ -7065,9 +7065,9 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long job_id {
+            public decimal job_id {
                 get {
-                    return ((long)(this[this.tablestaff.job_idColumn]));
+                    return ((decimal)(this[this.tablestaff.job_idColumn]));
                 }
                 set {
                     this[this.tablestaff.job_idColumn] = value;

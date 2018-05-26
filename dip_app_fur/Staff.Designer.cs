@@ -58,6 +58,7 @@
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager();
             this.jobsTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.jobsTableAdapter();
+            this.staffTableAdapter1 = new dip_app_fur.bd_dip_furDataSetTableAdapters.staffTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingNavigator)).BeginInit();
             this.staffBindingNavigator.SuspendLayout();
@@ -328,12 +329,17 @@
             this.tableAdapterManager.productsTableAdapter = null;
             this.tableAdapterManager.shipment_listTableAdapter = null;
             this.tableAdapterManager.shipmentsTableAdapter = null;
+            this.tableAdapterManager.staffTableAdapter = null;
             this.tableAdapterManager.suppliersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // jobsTableAdapter
             // 
             this.jobsTableAdapter.ClearBeforeFill = true;
+            // 
+            // staffTableAdapter1
+            // 
+            this.staffTableAdapter1.ClearBeforeFill = true;
             // 
             // Staff
             // 
@@ -390,5 +396,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private bd_dip_furDataSetTableAdapters.staffTableAdapter staffTableAdapter1;
     }
 }

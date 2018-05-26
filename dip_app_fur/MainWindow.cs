@@ -184,7 +184,7 @@ public partial class MainWindow : Form
 
                 foreach (DataRow dr in bd_dip_furDataSet1.staff.Rows)
                 {
-                    if (dr["status"].ToString() == "False")
+                    if (dr["status"].ToString() == "False" && dr["job_id"].ToString() == "3")
                     {
                         decimal d = Convert.ToDecimal(dr["rating"].ToString());
                         rating.Add(d);
@@ -196,7 +196,6 @@ public partial class MainWindow : Form
                 }
                 for (int i = 0; i < id.Count; i++)
                 {
-                    
                     rating[i] = rand.Next(Convert.ToInt32(rating[i])) * rating[i];
                     rating[i] *= 10;
                     if (rating[i] > max)
@@ -204,7 +203,6 @@ public partial class MainWindow : Form
                         max = rating[i];
                         max_id = i;
                     }
-
                 }
                 string result = String.Format("Рекомендуется назначить заказ под номером '{0}' исполнителю {1}",
                     orderDataGridView.CurrentCell.Value.ToString(), name[max_id]);

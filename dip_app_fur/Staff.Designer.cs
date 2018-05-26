@@ -48,17 +48,18 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.staffBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.staffDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.jobsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bd_dip_furDataSet = new dip_app_fur.bd_dip_furDataSet();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager();
             this.jobsTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.jobsTableAdapter();
             this.staffTableAdapter1 = new dip_app_fur.bd_dip_furDataSetTableAdapters.staffTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingNavigator)).BeginInit();
             this.staffBindingNavigator.SuspendLayout();
@@ -77,7 +78,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 43);
+            this.panel1.Size = new System.Drawing.Size(580, 43);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -98,7 +99,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(412, 0);
+            this.button2.Location = new System.Drawing.Point(537, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 40);
             this.button2.TabIndex = 3;
@@ -112,7 +113,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(366, 0);
+            this.button1.Location = new System.Drawing.Point(491, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 2;
@@ -147,7 +148,7 @@
             this.staffBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.staffBindingNavigator.Name = "staffBindingNavigator";
             this.staffBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.staffBindingNavigator.Size = new System.Drawing.Size(443, 25);
+            this.staffBindingNavigator.Size = new System.Drawing.Size(544, 25);
             this.staffBindingNavigator.TabIndex = 1;
             this.staffBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -254,12 +255,57 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.status});
             this.staffDataGridView.DataSource = this.staffBindingSource;
             this.staffDataGridView.Location = new System.Drawing.Point(9, 74);
             this.staffDataGridView.Name = "staffDataGridView";
-            this.staffDataGridView.Size = new System.Drawing.Size(443, 220);
+            this.staffDataGridView.Size = new System.Drawing.Size(544, 220);
             this.staffDataGridView.TabIndex = 2;
+            // 
+            // jobsBindingSource
+            // 
+            this.jobsBindingSource.DataMember = "jobs";
+            this.jobsBindingSource.DataSource = this.bd_dip_furDataSet;
+            // 
+            // bd_dip_furDataSet
+            // 
+            this.bd_dip_furDataSet.DataSetName = "bd_dip_furDataSet";
+            this.bd_dip_furDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "staff";
+            this.staffBindingSource.DataSource = this.bd_dip_furDataSet;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.categoriesTableAdapter = null;
+            this.tableAdapterManager.clientsTableAdapter = null;
+            this.tableAdapterManager.colorsTableAdapter = null;
+            this.tableAdapterManager.countriesTableAdapter = null;
+            this.tableAdapterManager.discountsTableAdapter = null;
+            this.tableAdapterManager.final_paperTableAdapter = null;
+            this.tableAdapterManager.jobsTableAdapter = this.jobsTableAdapter;
+            this.tableAdapterManager.materialsTableAdapter = null;
+            this.tableAdapterManager.orderTableAdapter = null;
+            this.tableAdapterManager.payment_typesTableAdapter = null;
+            this.tableAdapterManager.product_listTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.shipment_listTableAdapter = null;
+            this.tableAdapterManager.shipmentsTableAdapter = null;
+            this.tableAdapterManager.staffTableAdapter = this.staffTableAdapter1;
+            this.tableAdapterManager.suppliersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // jobsTableAdapter
+            // 
+            this.jobsTableAdapter.ClearBeforeFill = true;
+            // 
+            // staffTableAdapter1
+            // 
+            this.staffTableAdapter1.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -285,16 +331,6 @@
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewTextBoxColumn3.ValueMember = "id_job";
             // 
-            // jobsBindingSource
-            // 
-            this.jobsBindingSource.DataMember = "jobs";
-            this.jobsBindingSource.DataSource = this.bd_dip_furDataSet;
-            // 
-            // bd_dip_furDataSet
-            // 
-            this.bd_dip_furDataSet.DataSetName = "bd_dip_furDataSet";
-            this.bd_dip_furDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "phone";
@@ -307,45 +343,17 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Рейтинг";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // staffBindingSource
+            // status
             // 
-            this.staffBindingSource.DataMember = "staff";
-            this.staffBindingSource.DataSource = this.bd_dip_furDataSet;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.categoriesTableAdapter = null;
-            this.tableAdapterManager.clientsTableAdapter = null;
-            this.tableAdapterManager.colorsTableAdapter = null;
-            this.tableAdapterManager.countriesTableAdapter = null;
-            this.tableAdapterManager.discountsTableAdapter = null;
-            this.tableAdapterManager.final_paperTableAdapter = null;
-            this.tableAdapterManager.jobsTableAdapter = this.jobsTableAdapter;
-            this.tableAdapterManager.materialsTableAdapter = null;
-            this.tableAdapterManager.orderTableAdapter = null;
-            this.tableAdapterManager.payment_typesTableAdapter = null;
-            this.tableAdapterManager.product_listTableAdapter = null;
-            this.tableAdapterManager.productsTableAdapter = null;
-            this.tableAdapterManager.shipment_listTableAdapter = null;
-            this.tableAdapterManager.shipmentsTableAdapter = null;
-            this.tableAdapterManager.staffTableAdapter = null;
-            this.tableAdapterManager.suppliersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // jobsTableAdapter
-            // 
-            this.jobsTableAdapter.ClearBeforeFill = true;
-            // 
-            // staffTableAdapter1
-            // 
-            this.staffTableAdapter1.ClearBeforeFill = true;
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Занят";
+            this.status.Name = "status";
             // 
             // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 302);
+            this.ClientSize = new System.Drawing.Size(580, 302);
             this.Controls.Add(this.staffDataGridView);
             this.Controls.Add(this.staffBindingNavigator);
             this.Controls.Add(this.panel1);
@@ -391,11 +399,12 @@
         private bd_dip_furDataSetTableAdapters.jobsTableAdapter jobsTableAdapter;
         private System.Windows.Forms.DataGridView staffDataGridView;
         private System.Windows.Forms.BindingSource jobsBindingSource;
+        private bd_dip_furDataSetTableAdapters.staffTableAdapter staffTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private bd_dip_furDataSetTableAdapters.staffTableAdapter staffTableAdapter1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn status;
     }
 }

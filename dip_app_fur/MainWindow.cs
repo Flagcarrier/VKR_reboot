@@ -168,5 +168,48 @@ public partial class MainWindow : Form
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (orderDataGridView.CurrentCell.ColumnIndex == 0)
+            {
+                string order_number = orderDataGridView.CurrentCell.Value.ToString();
+                List<string> id = new List<string>();
+                List<decimal> rating = new List<decimal>();
+                List<string> name = new List<string>();
+                decimal max = 0;
+                int max_id = 0;
+                Random rand = new Random();
+
+
+                foreach (DataRow dr in bd_dip_furDataSet1.staff.Rows)
+                {
+                    if (dr["status"].ToString() == "False")
+                    {
+                        decimal d = Convert.ToDecimal(dr["rating"].ToString());
+                        rating.Add(d);
+                        string s = dr["id_staff"].ToString();
+                        id.Add(s);
+                        string n = dr["fullName"].ToString();
+                        name.Add(n);
+                    }
+                }
+                for (int i = 0; i < id.Count; i++)
+                {
+                    
+                    rating[i] = rand.Next(Convert.ToInt32(rating[i])) * rating[i];
+                    rating[i] *= 10;
+                    if (rating[i] > max)
+                    {
+                        max = rating[i];
+                        max_id = i;
+                    }
+
+                }
+                string result = String.Format("Рекомендуется назначить заказ под номером '{0}' исполнителю {1}",
+                    orderDataGridView.CurrentCell.Value.ToString(), name[max_id]);
+                MessageBox.Show(result);
+            }
+        }
     }
 }

@@ -65,6 +65,7 @@ namespace dip_app_fur
             // TODO: данная строка кода позволяет загрузить данные в таблицу "bd_dip_furDataSet.final_paper". При необходимости она может быть перемещена или удалена.
             this.final_paperTableAdapter.Fill(this.bd_dip_furDataSet.final_paper);
 
+            this.reportViewer1.RefreshReport();
         }
 
         private void final_paperDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

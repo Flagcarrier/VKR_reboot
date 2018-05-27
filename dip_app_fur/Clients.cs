@@ -57,5 +57,20 @@ namespace dip_app_fur
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clientsDataGridView.RowCount; i++)
+            {
+                clientsDataGridView.Rows[i].Selected = false;
+                for (int j = 0; j < clientsDataGridView.ColumnCount; j++)
+                    if (clientsDataGridView.Rows[i].Cells[j].Value != null)
+                        if (clientsDataGridView.Rows[i].Cells[j].Value.ToString().Contains(textBox1.Text))
+                        {
+                            clientsDataGridView.Rows[i].Selected = true;
+                            break;
+                        }
+            }
+        }
     }
 }

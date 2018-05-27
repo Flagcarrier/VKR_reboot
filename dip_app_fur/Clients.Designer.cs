@@ -57,6 +57,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
@@ -74,7 +76,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(606, 43);
+            this.panel1.Size = new System.Drawing.Size(469, 43);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -95,7 +97,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(563, 0);
+            this.button2.Location = new System.Drawing.Point(412, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 40);
             this.button2.TabIndex = 3;
@@ -109,7 +111,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(525, 0);
+            this.button1.Location = new System.Drawing.Point(374, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 2;
@@ -145,6 +147,8 @@
             this.tableAdapterManager.payment_typesTableAdapter = null;
             this.tableAdapterManager.product_listTableAdapter = null;
             this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.shipment_listTableAdapter = null;
+            this.tableAdapterManager.shipmentsTableAdapter = null;
             this.tableAdapterManager.staffTableAdapter = null;
             this.tableAdapterManager.suppliersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -288,7 +292,7 @@
             this.clientsDataGridView.DataSource = this.clientsBindingSource;
             this.clientsDataGridView.Location = new System.Drawing.Point(9, 74);
             this.clientsDataGridView.Name = "clientsDataGridView";
-            this.clientsDataGridView.Size = new System.Drawing.Size(443, 357);
+            this.clientsDataGridView.Size = new System.Drawing.Size(443, 329);
             this.clientsDataGridView.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -322,11 +326,30 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Рейтинг";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(160, 410);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(266, 410);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 443);
+            this.ClientSize = new System.Drawing.Size(469, 437);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.clientsDataGridView);
             this.Controls.Add(this.clientsBindingNavigator);
             this.Controls.Add(this.panel1);
@@ -343,6 +366,7 @@
             this.clientsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -375,5 +399,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
     }
 }

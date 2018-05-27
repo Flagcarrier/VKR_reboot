@@ -12,6 +12,8 @@ namespace dip_app_fur
 {
     public partial class Shipments : Form
     {
+        DateTimePicker dtp = new DateTimePicker();
+        Rectangle _Rectangle;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -22,6 +24,10 @@ namespace dip_app_fur
         public Shipments()
         {
             InitializeComponent();
+            shipmentsDataGridView.Controls.Add(dtp);
+            dtp.Visible = false;
+            dtp.Format = DateTimePickerFormat.Custom;
+            dtp.TextChanged += new EventHandler(dtp_TextChange);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,6 +80,41 @@ namespace dip_app_fur
             this.Validate();
             this.shipmentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.bd_dip_furDataSet);
+        }
+
+        private void shipmentsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            switch (shipmentsDataGridView.Columns[e.ColumnIndex].Name)
+            {
+                case "ship_date":
+                    _Rectangle = shipmentsDataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    dtp.Size = new Size(_Rectangle.Width, _Rectangle.Height);
+                    dtp.Location = new Point(_Rectangle.X, _Rectangle.Y);
+                    dtp.Visible = true;
+
+                    break;
+            }
+        }
+        private void dtp_TextChange(object sender, EventArgs e)
+        {
+            shipmentsDataGridView.CurrentCell.Value = dtp.Text.ToString();
+        }
+
+        private void shipmentsDataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            dtp.Visible = false;
+        }
+
+        private void shipmentsDataGridView_Scroll(object sender, ScrollEventArgs e)
+        {
+            dtp.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //decimal input = Convert.ToDecimal(textBox1.Text.ToString());
+            decimal input = Convert.ToDecimal(shipmentsDataGridView.CurrentCell.Value.ToString());
+            shipment_listBindingSource.Filter = string.Format("shipment_id = '{0}'", input);
         }
     }
 }

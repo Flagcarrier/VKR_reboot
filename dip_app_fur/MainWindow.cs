@@ -173,6 +173,10 @@ public partial class MainWindow : Form
         {
             if (orderDataGridView.CurrentCell.ColumnIndex == 0)
             {
+                this.tableAdapterManager.UpdateAll(this.bd_dip_furDataSet1);
+                //bd_dip_furDataSet1.Tables["staff"].AcceptChanges();
+                //this.Invalidate();
+                //bd_dip_furDataSet1.Reset();
                 string order_number = orderDataGridView.CurrentCell.Value.ToString();
                 List<string> id = new List<string>();
                 List<decimal> rating = new List<decimal>();
@@ -204,9 +208,17 @@ public partial class MainWindow : Form
                         max_id = i;
                     }
                 }
-                string result = String.Format("Рекомендуется назначить заказ под номером '{0}' исполнителю {1}",
+                if (name.Count == 0)
+                {
+                    MessageBox.Show("Свободных исполнителей нет");
+                }
+                else
+                {
+                    string result = String.Format("Рекомендуется назначить заказ под номером '{0}' исполнителю {1}",
                     orderDataGridView.CurrentCell.Value.ToString(), name[max_id]);
-                MessageBox.Show(result);
+                    MessageBox.Show(result);
+                }
+
             }
         }
     }

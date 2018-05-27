@@ -2138,9 +2138,6 @@ namespace dip_app_fur {
                 this.columnid_final_paper.AutoIncrementStep = -1;
                 this.columnid_final_paper.AllowDBNull = false;
                 this.columnid_final_paper.Unique = true;
-                this.columnworker_id.AllowDBNull = false;
-                this.columnorder_id.AllowDBNull = false;
-                this.columndate.AllowDBNull = false;
                 this.columncomment.MaxLength = 100;
                 this.columnclient_review.MaxLength = 100;
             }
@@ -3232,7 +3229,7 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public product_listRow Addproduct_listRow(decimal product_id, decimal amount, long order_id) {
+            public product_listRow Addproduct_listRow(decimal product_id, decimal amount, decimal order_id) {
                 product_listRow rowproduct_listRow = ((product_listRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3283,7 +3280,7 @@ namespace dip_app_fur {
                 base.Columns.Add(this.columnproduct_id);
                 this.columnamount = new global::System.Data.DataColumn("amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnamount);
-                this.columnorder_id = new global::System.Data.DataColumn("order_id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnorder_id = new global::System.Data.DataColumn("order_id", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorder_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_list}, true));
@@ -3653,17 +3650,10 @@ namespace dip_app_fur {
                 this.columnid_supplier.AutoIncrementStep = -1;
                 this.columnid_supplier.AllowDBNull = false;
                 this.columnid_supplier.Unique = true;
-                this.columncompanyName.AllowDBNull = false;
                 this.columncompanyName.MaxLength = 100;
-                this.columnaddress.AllowDBNull = false;
                 this.columnaddress.MaxLength = 150;
-                this.columncountry_id.AllowDBNull = false;
-                this.columncity.AllowDBNull = false;
                 this.columncity.MaxLength = 50;
-                this.columnphone.AllowDBNull = false;
-                this.columnemail.AllowDBNull = false;
                 this.columnemail.MaxLength = 50;
-                this.columnwebsite.AllowDBNull = false;
                 this.columnwebsite.MaxLength = 50;
             }
             
@@ -4128,6 +4118,8 @@ namespace dip_app_fur {
             
             private global::System.Data.DataColumn columndesigner_id;
             
+            private global::System.Data.DataColumn columnstatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public orderDataTable() {
@@ -4211,6 +4203,14 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn statusColumn {
+                get {
+                    return this.columnstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4246,7 +4246,7 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public orderRow AddorderRow(decimal project_id, decimal client_id, decimal manager_id, System.DateTime date, long designer_id) {
+            public orderRow AddorderRow(decimal project_id, decimal client_id, decimal manager_id, System.DateTime date, long designer_id, bool status) {
                 orderRow roworderRow = ((orderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4254,7 +4254,8 @@ namespace dip_app_fur {
                         client_id,
                         manager_id,
                         date,
-                        designer_id};
+                        designer_id,
+                        status};
                 roworderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(roworderRow);
                 return roworderRow;
@@ -4290,6 +4291,7 @@ namespace dip_app_fur {
                 this.columnmanager_id = base.Columns["manager_id"];
                 this.columndate = base.Columns["date"];
                 this.columndesigner_id = base.Columns["designer_id"];
+                this.columnstatus = base.Columns["status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4307,6 +4309,8 @@ namespace dip_app_fur {
                 base.Columns.Add(this.columndate);
                 this.columndesigner_id = new global::System.Data.DataColumn("designer_id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndesigner_id);
+                this.columnstatus = new global::System.Data.DataColumn("status", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_order}, true));
                 this.columnid_order.AutoIncrement = true;
@@ -4314,10 +4318,6 @@ namespace dip_app_fur {
                 this.columnid_order.AutoIncrementStep = -1;
                 this.columnid_order.AllowDBNull = false;
                 this.columnid_order.Unique = true;
-                this.columnproject_id.AllowDBNull = false;
-                this.columnclient_id.AllowDBNull = false;
-                this.columnmanager_id.AllowDBNull = false;
-                this.columndate.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5965,7 +5965,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal worker_id {
                 get {
-                    return ((decimal)(this[this.tablefinal_paper.worker_idColumn]));
+                    try {
+                        return ((decimal)(this[this.tablefinal_paper.worker_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'worker_id\' в таблице \'final_paper\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablefinal_paper.worker_idColumn] = value;
@@ -5976,7 +5981,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal order_id {
                 get {
-                    return ((decimal)(this[this.tablefinal_paper.order_idColumn]));
+                    try {
+                        return ((decimal)(this[this.tablefinal_paper.order_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'order_id\' в таблице \'final_paper\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablefinal_paper.order_idColumn] = value;
@@ -5987,7 +5997,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime date {
                 get {
-                    return ((global::System.DateTime)(this[this.tablefinal_paper.dateColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tablefinal_paper.dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'date\' в таблице \'final_paper\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablefinal_paper.dateColumn] = value;
@@ -6056,6 +6071,42 @@ namespace dip_app_fur {
                 set {
                     this[this.tablefinal_paper.markColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isworker_idNull() {
+                return this.IsNull(this.tablefinal_paper.worker_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setworker_idNull() {
+                this[this.tablefinal_paper.worker_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isorder_idNull() {
+                return this.IsNull(this.tablefinal_paper.order_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setorder_idNull() {
+                this[this.tablefinal_paper.order_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdateNull() {
+                return this.IsNull(this.tablefinal_paper.dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdateNull() {
+                this[this.tablefinal_paper.dateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6295,10 +6346,10 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long order_id {
+            public decimal order_id {
                 get {
                     try {
-                        return ((long)(this[this.tableproduct_list.order_idColumn]));
+                        return ((decimal)(this[this.tableproduct_list.order_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'order_id\' в таблице \'product_list\' равно DBNull.", e);
@@ -6351,7 +6402,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string companyName {
                 get {
-                    return ((string)(this[this.tablesuppliers.companyNameColumn]));
+                    try {
+                        return ((string)(this[this.tablesuppliers.companyNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'companyName\' в таблице \'suppliers\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesuppliers.companyNameColumn] = value;
@@ -6362,7 +6418,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string address {
                 get {
-                    return ((string)(this[this.tablesuppliers.addressColumn]));
+                    try {
+                        return ((string)(this[this.tablesuppliers.addressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'address\' в таблице \'suppliers\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesuppliers.addressColumn] = value;
@@ -6373,7 +6434,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal country_id {
                 get {
-                    return ((decimal)(this[this.tablesuppliers.country_idColumn]));
+                    try {
+                        return ((decimal)(this[this.tablesuppliers.country_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'country_id\' в таблице \'suppliers\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesuppliers.country_idColumn] = value;
@@ -6384,7 +6450,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string city {
                 get {
-                    return ((string)(this[this.tablesuppliers.cityColumn]));
+                    try {
+                        return ((string)(this[this.tablesuppliers.cityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'city\' в таблице \'suppliers\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesuppliers.cityColumn] = value;
@@ -6395,7 +6466,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal phone {
                 get {
-                    return ((decimal)(this[this.tablesuppliers.phoneColumn]));
+                    try {
+                        return ((decimal)(this[this.tablesuppliers.phoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'phone\' в таблице \'suppliers\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesuppliers.phoneColumn] = value;
@@ -6406,7 +6482,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string email {
                 get {
-                    return ((string)(this[this.tablesuppliers.emailColumn]));
+                    try {
+                        return ((string)(this[this.tablesuppliers.emailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'email\' в таблице \'suppliers\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesuppliers.emailColumn] = value;
@@ -6417,11 +6498,100 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string website {
                 get {
-                    return ((string)(this[this.tablesuppliers.websiteColumn]));
+                    try {
+                        return ((string)(this[this.tablesuppliers.websiteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'website\' в таблице \'suppliers\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablesuppliers.websiteColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscompanyNameNull() {
+                return this.IsNull(this.tablesuppliers.companyNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcompanyNameNull() {
+                this[this.tablesuppliers.companyNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsaddressNull() {
+                return this.IsNull(this.tablesuppliers.addressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetaddressNull() {
+                this[this.tablesuppliers.addressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscountry_idNull() {
+                return this.IsNull(this.tablesuppliers.country_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcountry_idNull() {
+                this[this.tablesuppliers.country_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscityNull() {
+                return this.IsNull(this.tablesuppliers.cityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcityNull() {
+                this[this.tablesuppliers.cityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsphoneNull() {
+                return this.IsNull(this.tablesuppliers.phoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetphoneNull() {
+                this[this.tablesuppliers.phoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsemailNull() {
+                return this.IsNull(this.tablesuppliers.emailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetemailNull() {
+                this[this.tablesuppliers.emailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IswebsiteNull() {
+                return this.IsNull(this.tablesuppliers.websiteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetwebsiteNull() {
+                this[this.tablesuppliers.websiteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6592,7 +6762,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal project_id {
                 get {
-                    return ((decimal)(this[this.tableorder.project_idColumn]));
+                    try {
+                        return ((decimal)(this[this.tableorder.project_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'project_id\' в таблице \'order\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableorder.project_idColumn] = value;
@@ -6603,7 +6778,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal client_id {
                 get {
-                    return ((decimal)(this[this.tableorder.client_idColumn]));
+                    try {
+                        return ((decimal)(this[this.tableorder.client_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'client_id\' в таблице \'order\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableorder.client_idColumn] = value;
@@ -6614,7 +6794,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal manager_id {
                 get {
-                    return ((decimal)(this[this.tableorder.manager_idColumn]));
+                    try {
+                        return ((decimal)(this[this.tableorder.manager_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'manager_id\' в таблице \'order\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableorder.manager_idColumn] = value;
@@ -6625,7 +6810,12 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime date {
                 get {
-                    return ((global::System.DateTime)(this[this.tableorder.dateColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableorder.dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'date\' в таблице \'order\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableorder.dateColumn] = value;
@@ -6650,6 +6840,70 @@ namespace dip_app_fur {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool status {
+                get {
+                    try {
+                        return ((bool)(this[this.tableorder.statusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'status\' в таблице \'order\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableorder.statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isproject_idNull() {
+                return this.IsNull(this.tableorder.project_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setproject_idNull() {
+                this[this.tableorder.project_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isclient_idNull() {
+                return this.IsNull(this.tableorder.client_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setclient_idNull() {
+                this[this.tableorder.client_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ismanager_idNull() {
+                return this.IsNull(this.tableorder.manager_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setmanager_idNull() {
+                this[this.tableorder.manager_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdateNull() {
+                return this.IsNull(this.tableorder.dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdateNull() {
+                this[this.tableorder.dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isdesigner_idNull() {
                 return this.IsNull(this.tableorder.designer_idColumn);
             }
@@ -6658,6 +6912,18 @@ namespace dip_app_fur {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setdesigner_idNull() {
                 this[this.tableorder.designer_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsstatusNull() {
+                return this.IsNull(this.tableorder.statusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetstatusNull() {
+                this[this.tableorder.statusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9685,19 +9951,19 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(@Original_id_final_paper));
             }
             if ((@Original_worker_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_worker_id");
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(@Original_worker_id));
             }
             if ((@Original_order_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_order_id");
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(@Original_order_id));
             }
             if ((@Original_date == null)) {
-                throw new global::System.ArgumentNullException("@Original_date");
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(@Original_date));
@@ -9756,19 +10022,19 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(object @worker_id, object @order_id, object @date, object @comment, object @client_review, object @sum, object @mark) {
             if ((@worker_id == null)) {
-                throw new global::System.ArgumentNullException("@worker_id");
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((object)(@worker_id));
             }
             if ((@order_id == null)) {
-                throw new global::System.ArgumentNullException("@order_id");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((object)(@order_id));
             }
             if ((@date == null)) {
-                throw new global::System.ArgumentNullException("@date");
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((object)(@date));
@@ -9819,19 +10085,19 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(object @worker_id, object @order_id, object @date, object @comment, object @client_review, object @sum, object @mark, object @Original_id_final_paper, object @Original_worker_id, object @Original_order_id, object @Original_date, object @Original_comment, object @Original_client_review, object @Original_sum, object @Original_mark) {
             if ((@worker_id == null)) {
-                throw new global::System.ArgumentNullException("@worker_id");
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((object)(@worker_id));
             }
             if ((@order_id == null)) {
-                throw new global::System.ArgumentNullException("@order_id");
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((object)(@order_id));
             }
             if ((@date == null)) {
-                throw new global::System.ArgumentNullException("@date");
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(@date));
@@ -9867,19 +10133,19 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(@Original_id_final_paper));
             }
             if ((@Original_worker_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_worker_id");
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(@Original_worker_id));
             }
             if ((@Original_order_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_order_id");
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(@Original_order_id));
             }
             if ((@Original_date == null)) {
-                throw new global::System.ArgumentNullException("@Original_date");
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(@Original_date));
@@ -11888,43 +12154,43 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(@Original_id_supplier));
             }
             if ((@Original_companyName == null)) {
-                throw new global::System.ArgumentNullException("@Original_companyName");
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(@Original_companyName));
             }
             if ((@Original_address == null)) {
-                throw new global::System.ArgumentNullException("@Original_address");
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(@Original_address));
             }
             if ((@Original_country_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_country_id");
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(@Original_country_id));
             }
             if ((@Original_city == null)) {
-                throw new global::System.ArgumentNullException("@Original_city");
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(@Original_city));
             }
             if ((@Original_phone == null)) {
-                throw new global::System.ArgumentNullException("@Original_phone");
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(@Original_phone));
             }
             if ((@Original_email == null)) {
-                throw new global::System.ArgumentNullException("@Original_email");
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(@Original_email));
             }
             if ((@Original_website == null)) {
-                throw new global::System.ArgumentNullException("@Original_website");
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(@Original_website));
@@ -11951,43 +12217,43 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(object @companyName, object @address, object @country_id, object @city, object @phone, object @email, object @website) {
             if ((@companyName == null)) {
-                throw new global::System.ArgumentNullException("@companyName");
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((object)(@companyName));
             }
             if ((@address == null)) {
-                throw new global::System.ArgumentNullException("@address");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((object)(@address));
             }
             if ((@country_id == null)) {
-                throw new global::System.ArgumentNullException("@country_id");
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((object)(@country_id));
             }
             if ((@city == null)) {
-                throw new global::System.ArgumentNullException("@city");
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((object)(@city));
             }
             if ((@phone == null)) {
-                throw new global::System.ArgumentNullException("@phone");
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((object)(@phone));
             }
             if ((@email == null)) {
-                throw new global::System.ArgumentNullException("@email");
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((object)(@email));
             }
             if ((@website == null)) {
-                throw new global::System.ArgumentNullException("@website");
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((object)(@website));
@@ -12014,43 +12280,43 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(object @companyName, object @address, object @country_id, object @city, object @phone, object @email, object @website, object @Original_id_supplier, object @Original_companyName, object @Original_address, object @Original_country_id, object @Original_city, object @Original_phone, object @Original_email, object @Original_website) {
             if ((@companyName == null)) {
-                throw new global::System.ArgumentNullException("@companyName");
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((object)(@companyName));
             }
             if ((@address == null)) {
-                throw new global::System.ArgumentNullException("@address");
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((object)(@address));
             }
             if ((@country_id == null)) {
-                throw new global::System.ArgumentNullException("@country_id");
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(@country_id));
             }
             if ((@city == null)) {
-                throw new global::System.ArgumentNullException("@city");
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(@city));
             }
             if ((@phone == null)) {
-                throw new global::System.ArgumentNullException("@phone");
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(@phone));
             }
             if ((@email == null)) {
-                throw new global::System.ArgumentNullException("@email");
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(@email));
             }
             if ((@website == null)) {
-                throw new global::System.ArgumentNullException("@website");
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(@website));
@@ -12062,43 +12328,43 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(@Original_id_supplier));
             }
             if ((@Original_companyName == null)) {
-                throw new global::System.ArgumentNullException("@Original_companyName");
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(@Original_companyName));
             }
             if ((@Original_address == null)) {
-                throw new global::System.ArgumentNullException("@Original_address");
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(@Original_address));
             }
             if ((@Original_country_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_country_id");
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(@Original_country_id));
             }
             if ((@Original_city == null)) {
-                throw new global::System.ArgumentNullException("@Original_city");
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(@Original_city));
             }
             if ((@Original_phone == null)) {
-                throw new global::System.ArgumentNullException("@Original_phone");
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(@Original_phone));
             }
             if ((@Original_email == null)) {
-                throw new global::System.ArgumentNullException("@Original_email");
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(@Original_email));
             }
             if ((@Original_website == null)) {
-                throw new global::System.ArgumentNullException("@Original_website");
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(@Original_website));
@@ -12752,10 +13018,11 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("manager_id", "manager_id");
             tableMapping.ColumnMappings.Add("date", "date");
             tableMapping.ColumnMappings.Add("designer_id", "designer_id");
+            tableMapping.ColumnMappings.Add("status", "status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::Npgsql.NpgsqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""bd_dip_fur"".""public"".""order"" WHERE ((""id_order"" = @Original_id_order) AND ((@IsNull_project_id = 1 AND ""project_id"" IS NULL) OR (""project_id"" = @Original_project_id)) AND (""client_id"" = @Original_client_id) AND (""manager_id"" = @Original_manager_id) AND (""date"" = @Original_date) AND ((@IsNull_designer_id = 1 AND ""designer_id"" IS NULL) OR (""designer_id"" = @Original_designer_id)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""bd_dip_fur"".""public"".""order"" WHERE ((""id_order"" = @Original_id_order) AND ((@IsNull_project_id = 1 AND ""project_id"" IS NULL) OR (""project_id"" = @Original_project_id)) AND (""client_id"" = @Original_client_id) AND (""manager_id"" = @Original_manager_id) AND (""date"" = @Original_date) AND ((@IsNull_designer_id = 1 AND ""designer_id"" IS NULL) OR (""designer_id"" = @Original_designer_id)) AND ((@IsNull_status = 1 AND ""status"" IS NULL) OR (""status"" = @Original_status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "@Original_id_order";
@@ -12809,11 +13076,25 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             param.SourceColumn = "designer_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@IsNull_status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_status";
+            param.IsNullable = true;
+            param.SourceColumn = "status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::Npgsql.NpgsqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO \"bd_dip_fur\".\"public\".\"order\" (\"project_id\", \"client_id\", \"manager_id" +
-                "\", \"date\", \"designer_id\") VALUES (@project_id, @client_id, @manager_id, @date, @" +
-                "designer_id)";
+                "\", \"date\", \"designer_id\", \"status\") VALUES (@project_id, @client_id, @manager_id" +
+                ", @date, @designer_id, @status)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "@project_id";
@@ -12840,9 +13121,14 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "designer_id";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@status";
+            param.IsNullable = true;
+            param.SourceColumn = "status";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::Npgsql.NpgsqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE ""bd_dip_fur"".""public"".""order"" SET ""project_id"" = @project_id, ""client_id"" = @client_id, ""manager_id"" = @manager_id, ""date"" = @date, ""designer_id"" = @designer_id WHERE ((""id_order"" = @Original_id_order) AND ((@IsNull_project_id = 1 AND ""project_id"" IS NULL) OR (""project_id"" = @Original_project_id)) AND (""client_id"" = @Original_client_id) AND (""manager_id"" = @Original_manager_id) AND (""date"" = @Original_date) AND ((@IsNull_designer_id = 1 AND ""designer_id"" IS NULL) OR (""designer_id"" = @Original_designer_id)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""bd_dip_fur"".""public"".""order"" SET ""project_id"" = @project_id, ""client_id"" = @client_id, ""manager_id"" = @manager_id, ""date"" = @date, ""designer_id"" = @designer_id, ""status"" = @status WHERE ((""id_order"" = @Original_id_order) AND ((@IsNull_project_id = 1 AND ""project_id"" IS NULL) OR (""project_id"" = @Original_project_id)) AND (""client_id"" = @Original_client_id) AND (""manager_id"" = @Original_manager_id) AND (""date"" = @Original_date) AND ((@IsNull_designer_id = 1 AND ""designer_id"" IS NULL) OR (""designer_id"" = @Original_designer_id)) AND ((@IsNull_status = 1 AND ""status"" IS NULL) OR (""status"" = @Original_status)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "@project_id";
@@ -12868,6 +13154,11 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             param.ParameterName = "@designer_id";
             param.IsNullable = true;
             param.SourceColumn = "designer_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@status";
+            param.IsNullable = true;
+            param.SourceColumn = "status";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "@Original_id_order";
@@ -12921,6 +13212,20 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             param.SourceColumn = "designer_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@IsNull_status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_status";
+            param.IsNullable = true;
+            param.SourceColumn = "status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12936,8 +13241,8 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             this._commandCollection = new global::Npgsql.NpgsqlCommand[1];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_order, project_id, client_id, manager_id, \"date\", designer_id FROM \"ord" +
-                "er\"";
+            this._commandCollection[0].CommandText = "SELECT id_order, project_id, client_id, manager_id, \"date\", designer_id, status F" +
+                "ROM \"order\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12998,7 +13303,7 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(object @Original_id_order, object @Original_project_id, object @Original_client_id, object @Original_manager_id, object @Original_date, object @Original_designer_id) {
+        public virtual int Delete(object @Original_id_order, object @Original_project_id, object @Original_client_id, object @Original_manager_id, object @Original_date, object @Original_designer_id, object @Original_status) {
             if ((@Original_id_order == null)) {
                 throw new global::System.ArgumentNullException("@Original_id_order");
             }
@@ -13014,19 +13319,19 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(@Original_project_id));
             }
             if ((@Original_client_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_client_id");
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(@Original_client_id));
             }
             if ((@Original_manager_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_manager_id");
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(@Original_manager_id));
             }
             if ((@Original_date == null)) {
-                throw new global::System.ArgumentNullException("@Original_date");
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(@Original_date));
@@ -13038,6 +13343,14 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(@Original_designer_id));
+            }
+            if ((@Original_status == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(@Original_status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13059,7 +13372,7 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(object @project_id, object @client_id, object @manager_id, object @date, object @designer_id) {
+        public virtual int Insert(object @project_id, object @client_id, object @manager_id, object @date, object @designer_id, object @status) {
             if ((@project_id == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -13067,19 +13380,19 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((object)(@project_id));
             }
             if ((@client_id == null)) {
-                throw new global::System.ArgumentNullException("@client_id");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((object)(@client_id));
             }
             if ((@manager_id == null)) {
-                throw new global::System.ArgumentNullException("@manager_id");
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((object)(@manager_id));
             }
             if ((@date == null)) {
-                throw new global::System.ArgumentNullException("@date");
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((object)(@date));
@@ -13089,6 +13402,12 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((object)(@designer_id));
+            }
+            if ((@status == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((object)(@status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13110,7 +13429,7 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(object @project_id, object @client_id, object @manager_id, object @date, object @designer_id, object @Original_id_order, object @Original_project_id, object @Original_client_id, object @Original_manager_id, object @Original_date, object @Original_designer_id) {
+        public virtual int Update(object @project_id, object @client_id, object @manager_id, object @date, object @designer_id, object @status, object @Original_id_order, object @Original_project_id, object @Original_client_id, object @Original_manager_id, object @Original_date, object @Original_designer_id, object @Original_status) {
             if ((@project_id == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -13118,19 +13437,19 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((object)(@project_id));
             }
             if ((@client_id == null)) {
-                throw new global::System.ArgumentNullException("@client_id");
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((object)(@client_id));
             }
             if ((@manager_id == null)) {
-                throw new global::System.ArgumentNullException("@manager_id");
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(@manager_id));
             }
             if ((@date == null)) {
-                throw new global::System.ArgumentNullException("@date");
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(@date));
@@ -13141,45 +13460,59 @@ namespace dip_app_fur.bd_dip_furDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(@designer_id));
             }
+            if ((@status == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(@status));
+            }
             if ((@Original_id_order == null)) {
                 throw new global::System.ArgumentNullException("@Original_id_order");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(@Original_id_order));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(@Original_id_order));
             }
             if ((@Original_project_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(@Original_project_id));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(@Original_project_id));
             }
             if ((@Original_client_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_client_id");
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(@Original_client_id));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(@Original_client_id));
             }
             if ((@Original_manager_id == null)) {
-                throw new global::System.ArgumentNullException("@Original_manager_id");
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(@Original_manager_id));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(@Original_manager_id));
             }
             if ((@Original_date == null)) {
-                throw new global::System.ArgumentNullException("@Original_date");
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(@Original_date));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(@Original_date));
             }
             if ((@Original_designer_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(@Original_designer_id));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(@Original_designer_id));
+            }
+            if ((@Original_status == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(@Original_status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

@@ -59,5 +59,13 @@ namespace dip_app_fur
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            decimal input = Convert.ToDecimal(textBox1.Text.ToString());
+            product_listBindingSource.Filter = string.Format("order_id = '{0}'", input);
+
+            //(product_listDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format("order_id = '{0}'", textBox1.Text);
+        }
     }
 }

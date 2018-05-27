@@ -71,6 +71,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingNavigator)).BeginInit();
             this.orderBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -111,7 +112,7 @@
             this.orderBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.orderBindingNavigator.Name = "orderBindingNavigator";
             this.orderBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.orderBindingNavigator.Size = new System.Drawing.Size(544, 25);
+            this.orderBindingNavigator.Size = new System.Drawing.Size(527, 25);
             this.orderBindingNavigator.TabIndex = 0;
             this.orderBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -227,11 +228,12 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.status});
             this.orderDataGridView.DataSource = this.orderBindingSource;
-            this.orderDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.orderDataGridView.Location = new System.Drawing.Point(0, 28);
             this.orderDataGridView.Name = "orderDataGridView";
-            this.orderDataGridView.Size = new System.Drawing.Size(544, 226);
+            this.orderDataGridView.Size = new System.Drawing.Size(511, 242);
             this.orderDataGridView.TabIndex = 1;
             this.orderDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDataGridView_CellClick);
             this.orderDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDataGridView_CellContentClick);
@@ -348,12 +350,12 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.orderDataGridView);
             this.panel2.Controls.Add(this.orderBindingNavigator);
             this.panel2.Location = new System.Drawing.Point(252, 45);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(544, 273);
+            this.panel2.Size = new System.Drawing.Size(527, 273);
             this.panel2.TabIndex = 3;
             // 
             // panel3
@@ -365,7 +367,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(796, 43);
+            this.panel3.Size = new System.Drawing.Size(763, 43);
             this.panel3.TabIndex = 4;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
@@ -376,7 +378,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(753, 1);
+            this.button2.Location = new System.Drawing.Point(720, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 40);
             this.button2.TabIndex = 2;
@@ -390,7 +392,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(713, 1);
+            this.button1.Location = new System.Drawing.Point(680, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 1;
@@ -443,9 +445,9 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(350, 345);
+            this.button10.Location = new System.Drawing.Point(431, 353);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(206, 57);
+            this.button10.Size = new System.Drawing.Size(160, 63);
             this.button10.TabIndex = 5;
             this.button10.Text = "Назначить исполнителя";
             this.button10.UseVisualStyleBackColor = true;
@@ -487,10 +489,16 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Дата регистрации заказа";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Назначен";
+            this.status.Name = "status";
+            // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(796, 446);
+            this.ClientSize = new System.Drawing.Size(763, 446);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -562,6 +570,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn status;
     }
 }
 

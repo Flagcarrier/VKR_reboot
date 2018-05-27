@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinReport));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.final_paperBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bd_dip_furDataSet = new dip_app_fur.bd_dip_furDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.bd_dip_furDataSet = new dip_app_fur.bd_dip_furDataSet();
-            this.final_paperBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.final_paperTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.final_paperTableAdapter();
             this.tableAdapterManager = new dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager();
             this.staffTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.staffTableAdapter();
@@ -54,23 +54,34 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.final_paperBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.final_paperDataGridView = new System.Windows.Forms.DataGridView();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).BeginInit();
+            this.mark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.final_paperBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.final_paperBindingNavigator)).BeginInit();
             this.final_paperBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.final_paperDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // final_paperBindingSource
+            // 
+            this.final_paperBindingSource.DataMember = "final_paper";
+            this.final_paperBindingSource.DataSource = this.bd_dip_furDataSet;
+            // 
+            // bd_dip_furDataSet
+            // 
+            this.bd_dip_furDataSet.DataSetName = "bd_dip_furDataSet";
+            this.bd_dip_furDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -122,16 +133,6 @@
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // bd_dip_furDataSet
-            // 
-            this.bd_dip_furDataSet.DataSetName = "bd_dip_furDataSet";
-            this.bd_dip_furDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // final_paperBindingSource
-            // 
-            this.final_paperBindingSource.DataMember = "final_paper";
-            this.final_paperBindingSource.DataSource = this.bd_dip_furDataSet;
             // 
             // final_paperTableAdapter
             // 
@@ -299,7 +300,8 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.mark});
             this.final_paperDataGridView.DataSource = this.final_paperBindingSource;
             this.final_paperDataGridView.Location = new System.Drawing.Point(12, 74);
             this.final_paperDataGridView.Name = "final_paperDataGridView";
@@ -308,6 +310,22 @@
             this.final_paperDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.final_paperDataGridView_CellClick);
             this.final_paperDataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.final_paperDataGridView_ColumnWidthChanged);
             this.final_paperDataGridView.Scroll += new System.Windows.Forms.ScrollEventHandler(this.final_paperDataGridView_Scroll);
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "staff";
+            this.staffBindingSource.DataSource = this.bd_dip_furDataSet;
+            // 
+            // reportViewer1
+            // 
+            reportDataSource4.Name = "DataSet1";
+            reportDataSource4.Value = this.final_paperBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "dip_app_fur.Report_Final.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(12, 311);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(646, 236);
+            this.reportViewer1.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -326,11 +344,6 @@
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewTextBoxColumn2.ValueMember = "id_staff";
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "staff";
-            this.staffBindingSource.DataSource = this.bd_dip_furDataSet;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -361,17 +374,14 @@
             this.dataGridViewTextBoxColumn5.DataPropertyName = "comment";
             this.dataGridViewTextBoxColumn5.HeaderText = "Комментарий";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
-            // reportViewer1
+            // mark
             // 
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.final_paperBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "dip_app_fur.Report_Final.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 311);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(646, 236);
-            this.reportViewer1.TabIndex = 3;
+            this.mark.DataPropertyName = "mark";
+            this.mark.HeaderText = "Оценка";
+            this.mark.Name = "mark";
+            this.mark.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // FinReport
             // 
@@ -386,10 +396,10 @@
             this.Name = "FinReport";
             this.Text = "FinReport";
             this.Load += new System.EventHandler(this.FinReport_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.final_paperBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.final_paperBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.final_paperBindingNavigator)).EndInit();
             this.final_paperBindingNavigator.ResumeLayout(false);
             this.final_paperBindingNavigator.PerformLayout();
@@ -425,6 +435,7 @@
         private bd_dip_furDataSetTableAdapters.staffTableAdapter staffTableAdapter;
         private System.Windows.Forms.DataGridView final_paperDataGridView;
         private System.Windows.Forms.BindingSource staffBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -432,6 +443,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mark;
     }
 }

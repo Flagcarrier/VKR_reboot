@@ -22,7 +22,7 @@ namespace dip_app_fur
         public Staff()
         {
             InitializeComponent();
-            //staffDataGridView.Sort(staffDataGridView.Columns[0], ListSortDirection.Ascending);
+            staffDataGridView.Sort(staffDataGridView.Columns.["id_staff"], ListSortDirection.Ascending);
         }
 
         private void button2_Click(object sender, EventArgs e)

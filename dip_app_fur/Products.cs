@@ -21,7 +21,7 @@ namespace dip_app_fur
         public static extern bool ReleaseCapture();
         public Products()
         {
-            InitializeComponent();
+            InitializeComponent();      
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,6 +62,56 @@ namespace dip_app_fur
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            for (int i = 0; i < chart1.Series[0].Points.Count; i++)
+            {
+
+                switch (chart1.Series[0].Points[i].XValue.ToString())
+                {
+                    case "1":
+                        chart1.Series[0].Points[i].LegendText = "Кухни";
+                        break;
+                    case "2":
+                        chart1.Series[0].Points[i].LegendText = "Кухонные мойки";
+                        break;
+                    case "3":
+                        chart1.Series[0].Points[i].LegendText = "Фартуки";
+                        break;
+                    case "4":
+                        chart1.Series[0].Points[i].LegendText = "Столешницы";
+                        break;
+                    case "5":
+                        chart1.Series[0].Points[i].LegendText = "Смесители";
+                        break;
+                    case "6":
+                        chart1.Series[0].Points[i].LegendText = "Аксессуары";
+                        break;
+                    case "7":
+                        chart1.Series[0].Points[i].LegendText = "Техника";
+                        break;
+                    case "8":
+                        chart1.Series[0].Points[i].LegendText = "Посуда";
+                        break;
+                    case "9":
+                        chart1.Series[0].Points[i].LegendText = "Кухонная мебель";
+                        break;
+                }
+
+            }
+            
+            System.Threading.Thread.Sleep(1000);
+            chart1.Visible = true;
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            chart2.Visible = true;
         }
     }
 }

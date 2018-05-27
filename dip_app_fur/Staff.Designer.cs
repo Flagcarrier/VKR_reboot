@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,6 +58,9 @@
             this.tableAdapterManager = new dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager();
             this.jobsTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.jobsTableAdapter();
             this.staffTableAdapter1 = new dip_app_fur.bd_dip_furDataSetTableAdapters.staffTableAdapter();
+            this.bd_dip_furDataSet1 = new dip_app_fur.bd_dip_furDataSet();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button3 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -67,6 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.jobsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,7 +87,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(580, 43);
+            this.panel1.Size = new System.Drawing.Size(561, 43);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -99,7 +108,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(537, 0);
+            this.button2.Location = new System.Drawing.Point(514, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 40);
             this.button2.TabIndex = 3;
@@ -113,7 +122,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(491, 0);
+            this.button1.Location = new System.Drawing.Point(468, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 2;
@@ -277,6 +286,7 @@
             // 
             this.staffBindingSource.DataMember = "staff";
             this.staffBindingSource.DataSource = this.bd_dip_furDataSet;
+            this.staffBindingSource.Sort = "rating";
             // 
             // tableAdapterManager
             // 
@@ -306,6 +316,42 @@
             // staffTableAdapter1
             // 
             this.staffTableAdapter1.ClearBeforeFill = true;
+            // 
+            // bd_dip_furDataSet1
+            // 
+            this.bd_dip_furDataSet1.DataSetName = "bd_dip_furDataSet";
+            this.bd_dip_furDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.DataSource = this.staffBindingSource;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(9, 342);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Сотрудники";
+            series1.XValueMember = "fullName";
+            series1.YValueMembers = "rating";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(537, 175);
+            this.chart1.TabIndex = 3;
+            this.chart1.Text = "Рейтинг сотрудников";
+            this.chart1.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(9, 300);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(110, 36);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Построить график по рейтингу";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -340,6 +386,9 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "rating";
+            dataGridViewCellStyle1.Format = "N1";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn5.HeaderText = "Рейтинг";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
@@ -353,7 +402,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 302);
+            this.ClientSize = new System.Drawing.Size(561, 337);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.staffDataGridView);
             this.Controls.Add(this.staffBindingNavigator);
             this.Controls.Add(this.panel1);
@@ -370,6 +421,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.jobsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,6 +453,9 @@
         private System.Windows.Forms.DataGridView staffDataGridView;
         private System.Windows.Forms.BindingSource jobsBindingSource;
         private bd_dip_furDataSetTableAdapters.staffTableAdapter staffTableAdapter1;
+        private bd_dip_furDataSet bd_dip_furDataSet1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;

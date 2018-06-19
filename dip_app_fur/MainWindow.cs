@@ -48,6 +48,8 @@ public partial class MainWindow : Form
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "bd_dip_furDataSet.staff". При необходимости она может быть перемещена или удалена.
+            this.staffTableAdapter.Fill(this.bd_dip_furDataSet.staff);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "bd_dip_furDataSet.order". При необходимости она может быть перемещена или удалена.
             this.orderTableAdapter.Fill(this.bd_dip_furDataSet.order);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "bd_dip_furDataSet.categories". При необходимости она может быть перемещена или удалена.
@@ -173,10 +175,12 @@ public partial class MainWindow : Form
         {
             if (orderDataGridView.CurrentCell.ColumnIndex == 0)
             {
-                this.tableAdapterManager.UpdateAll(this.bd_dip_furDataSet1);
+                //this.tableAdapterManager.UpdateAll(this.bd_dip_furDataSet1);
                 //bd_dip_furDataSet1.Tables["staff"].AcceptChanges();
                 //this.Invalidate();
                 //bd_dip_furDataSet1.Reset();
+                //bd_dip_furDataSet.staff.clear();
+
                 string order_number = orderDataGridView.CurrentCell.Value.ToString();
                 List<string> id = new List<string>();
                 List<decimal> rating = new List<decimal>();
@@ -186,7 +190,7 @@ public partial class MainWindow : Form
                 Random rand = new Random();
 
 
-                foreach (DataRow dr in bd_dip_furDataSet1.staff.Rows)
+                foreach (DataRow dr in bd_dip_furDataSet.staff.Rows)
                 {
                     if (dr["status"].ToString() == "False" && dr["job_id"].ToString() == "3")
                     {

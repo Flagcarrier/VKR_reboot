@@ -36,6 +36,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.shipment_listBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.shipment_listBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bd_dip_furDataSet = new dip_app_fur.bd_dip_furDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +50,14 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.shipment_listBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.shipment_listDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shipmentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shipmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -62,36 +71,27 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.ship_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bd_dip_furDataSet = new dip_app_fur.bd_dip_furDataSet();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipment_listBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shipment_listTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.shipment_listTableAdapter();
             this.tableAdapterManager = new dip_app_fur.bd_dip_furDataSetTableAdapters.TableAdapterManager();
             this.productsTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.productsTableAdapter();
             this.shipmentsTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.shipmentsTableAdapter();
             this.suppliersTableAdapter = new dip_app_fur.bd_dip_furDataSetTableAdapters.suppliersTableAdapter();
             this.button3 = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ship_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipment_listBindingNavigator)).BeginInit();
             this.shipment_listBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shipment_listBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipment_listDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipment_listBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -103,7 +103,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(847, 43);
+            this.panel1.Size = new System.Drawing.Size(688, 43);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -125,7 +125,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(784, 0);
+            this.button2.Location = new System.Drawing.Point(639, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 40);
             this.button2.TabIndex = 3;
@@ -139,7 +139,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(741, 0);
+            this.button1.Location = new System.Drawing.Point(596, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 2;
@@ -174,7 +174,7 @@
             this.shipment_listBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.shipment_listBindingNavigator.Name = "shipment_listBindingNavigator";
             this.shipment_listBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.shipment_listBindingNavigator.Size = new System.Drawing.Size(445, 25);
+            this.shipment_listBindingNavigator.Size = new System.Drawing.Size(350, 25);
             this.shipment_listBindingNavigator.TabIndex = 1;
             this.shipment_listBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -186,6 +186,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
+            // 
+            // shipment_listBindingSource
+            // 
+            this.shipment_listBindingSource.DataMember = "shipment_list";
+            this.shipment_listBindingSource.DataSource = this.bd_dip_furDataSet;
+            // 
+            // bd_dip_furDataSet
+            // 
+            this.bd_dip_furDataSet.DataSetName = "bd_dip_furDataSet";
+            this.bd_dip_furDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -275,6 +285,7 @@
             // shipment_listDataGridView
             // 
             this.shipment_listDataGridView.AutoGenerateColumns = false;
+            this.shipment_listDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.shipment_listDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.shipment_listDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -284,25 +295,71 @@
             this.shipment_listDataGridView.DataSource = this.shipment_listBindingSource;
             this.shipment_listDataGridView.Location = new System.Drawing.Point(9, 74);
             this.shipment_listDataGridView.Name = "shipment_listDataGridView";
-            this.shipment_listDataGridView.Size = new System.Drawing.Size(442, 220);
+            this.shipment_listDataGridView.Size = new System.Drawing.Size(347, 220);
             this.shipment_listDataGridView.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_shipment_list";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id_shipment_list";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "shipment_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Код поставки";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "product_id";
+            this.dataGridViewTextBoxColumn3.DataSource = this.productsBindingSource;
+            this.dataGridViewTextBoxColumn3.DisplayMember = "model";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Товар";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn3.ValueMember = "id_product";
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "products";
+            this.productsBindingSource.DataSource = this.bd_dip_furDataSet;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "amount";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Количество";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // shipmentsDataGridView
             // 
             this.shipmentsDataGridView.AutoGenerateColumns = false;
+            this.shipmentsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.shipmentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.shipmentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.ship_date});
             this.shipmentsDataGridView.DataSource = this.shipmentsBindingSource;
-            this.shipmentsDataGridView.Location = new System.Drawing.Point(457, 74);
+            this.shipmentsDataGridView.Location = new System.Drawing.Point(369, 74);
             this.shipmentsDataGridView.Name = "shipmentsDataGridView";
-            this.shipmentsDataGridView.Size = new System.Drawing.Size(338, 220);
+            this.shipmentsDataGridView.Size = new System.Drawing.Size(310, 220);
             this.shipmentsDataGridView.TabIndex = 3;
             this.shipmentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.shipmentsDataGridView_CellClick);
             this.shipmentsDataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.shipmentsDataGridView_ColumnWidthChanged);
             this.shipmentsDataGridView.Scroll += new System.Windows.Forms.ScrollEventHandler(this.shipmentsDataGridView_Scroll);
+            // 
+            // suppliersBindingSource
+            // 
+            this.suppliersBindingSource.DataMember = "suppliers";
+            this.suppliersBindingSource.DataSource = this.bd_dip_furDataSet;
+            // 
+            // shipmentsBindingSource
+            // 
+            this.shipmentsBindingSource.DataMember = "shipments";
+            this.shipmentsBindingSource.DataSource = this.bd_dip_furDataSet;
             // 
             // bindingNavigator1
             // 
@@ -325,14 +382,14 @@
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton7});
-            this.bindingNavigator1.Location = new System.Drawing.Point(457, 46);
+            this.bindingNavigator1.Location = new System.Drawing.Point(369, 46);
             this.bindingNavigator1.MoveFirstItem = this.toolStripButton3;
             this.bindingNavigator1.MoveLastItem = this.toolStripButton6;
             this.bindingNavigator1.MoveNextItem = this.toolStripButton5;
             this.bindingNavigator1.MovePreviousItem = this.toolStripButton4;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator1.Size = new System.Drawing.Size(338, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(310, 25);
             this.bindingNavigator1.TabIndex = 4;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -430,84 +487,6 @@
             this.toolStripButton7.Text = "Сохранить данные";
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
-            // ship_date
-            // 
-            this.ship_date.DataPropertyName = "ship_date";
-            this.ship_date.HeaderText = "Дата поставки";
-            this.ship_date.Name = "ship_date";
-            // 
-            // shipmentsBindingSource
-            // 
-            this.shipmentsBindingSource.DataMember = "shipments";
-            this.shipmentsBindingSource.DataSource = this.bd_dip_furDataSet;
-            // 
-            // bd_dip_furDataSet
-            // 
-            this.bd_dip_furDataSet.DataSetName = "bd_dip_furDataSet";
-            this.bd_dip_furDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "id_shipment";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Код поставки";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "supplier_id";
-            this.dataGridViewTextBoxColumn6.DataSource = this.suppliersBindingSource;
-            this.dataGridViewTextBoxColumn6.DisplayMember = "companyName";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Поставщик";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn6.ValueMember = "id_supplier";
-            // 
-            // suppliersBindingSource
-            // 
-            this.suppliersBindingSource.DataMember = "suppliers";
-            this.suppliersBindingSource.DataSource = this.bd_dip_furDataSet;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_shipment_list";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id_shipment_list";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "shipment_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Код поставки";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "product_id";
-            this.dataGridViewTextBoxColumn3.DataSource = this.productsBindingSource;
-            this.dataGridViewTextBoxColumn3.DisplayMember = "model";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Товар";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn3.ValueMember = "id_product";
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "products";
-            this.productsBindingSource.DataSource = this.bd_dip_furDataSet;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "amount";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Количество";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // shipment_listBindingSource
-            // 
-            this.shipment_listBindingSource.DataMember = "shipment_list";
-            this.shipment_listBindingSource.DataSource = this.bd_dip_furDataSet;
-            // 
             // shipment_listTableAdapter
             // 
             this.shipment_listTableAdapter.ClearBeforeFill = true;
@@ -547,7 +526,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(194, 306);
+            this.button3.Location = new System.Drawing.Point(99, 306);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(257, 23);
             this.button3.TabIndex = 5;
@@ -555,11 +534,35 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "id_shipment";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Код поставки";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "supplier_id";
+            this.dataGridViewTextBoxColumn6.DataSource = this.suppliersBindingSource;
+            this.dataGridViewTextBoxColumn6.DisplayMember = "companyName";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Поставщик";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn6.ValueMember = "id_supplier";
+            // 
+            // ship_date
+            // 
+            this.ship_date.DataPropertyName = "ship_date";
+            this.ship_date.HeaderText = "Дата поставки";
+            this.ship_date.Name = "ship_date";
+            // 
             // Shipments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 341);
+            this.ClientSize = new System.Drawing.Size(688, 341);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.shipmentsDataGridView);
@@ -575,16 +578,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.shipment_listBindingNavigator)).EndInit();
             this.shipment_listBindingNavigator.ResumeLayout(false);
             this.shipment_listBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shipment_listBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipment_listDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipmentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shipmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.shipmentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bd_dip_furDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipment_listBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -637,9 +640,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.BindingSource suppliersBindingSource;
         private bd_dip_furDataSetTableAdapters.suppliersTableAdapter suppliersTableAdapter;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn ship_date;
-        private System.Windows.Forms.Button button3;
     }
 }
